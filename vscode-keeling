@@ -1,4 +1,4 @@
-1. Download VSCode connect to CISCO Secure Client VPN. 
+1. Assuming you have vscode, cisco vpn, and keeling access. 
 2. In VSCode, download the "Remote-SSH" extension.
 3. Access "Remote-SSH". Select "Connect to Host..." >> "Configure New SSH Hosts..." >> "*/.ssh/config"
 4. In the config file, input:
@@ -7,7 +7,7 @@
 Host keeling
     HostName keeling9.earth.illinois.edu
     User username
-    IdentityFile ~/.ssh/id_ed25519 #to bypass password entry. key needs to be set up locally in authorized keys.  
+    IdentityFile ~/.ssh/id_ed25519 #to bypass password entry. key needs to be set up locally.  
     ForwardAgent yes  #allows forwarding to the compute node
 
 # Compute node wildcard access set up
