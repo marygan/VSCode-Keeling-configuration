@@ -7,7 +7,7 @@
 Host keeling
     HostName keeling9.earth.illinois.edu
     User username
-    IdentityFile ~/.ssh/id_ed25519 #auto verification, must setup key locally otherwise you will need to enter your password each time
+    IdentityFile ~/.ssh/id_ed25519 #to bypass password entry. key needs to be set up locally in authorized keys.  
     ForwardAgent yes  #allows forwarding to the compute node
 
 # Compute node wildcard access set up
