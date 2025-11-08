@@ -1,0 +1,24 @@
+1. Download VSCode connect to CISCO Secure Client VPN. 
+2. In VSCode, download the "Remote-SSH" extension.
+3. Access "Remote-SSH". Select "Connect to Host..." >> "Configure New SSH Hosts..." >> "*/.ssh/config"
+4. In the config file, input:
+
+#Head node access  
+Host keeling
+    HostName keeling9.earth.illinois.edu
+    User username
+    IdentityFile ~/.ssh/id_ed25519 #auto verification, must setup key locally otherwise you will need to enter your password each time
+    ForwardAgent yes  #allows forwarding to the compute node
+
+# Compute node wildcard access set up
+Host keeling-* #for randomized compute nodes
+    User username
+    ProxyJump keeling
+    IdentityFile ~/.ssh/id_ed25519
+
+5. Connect to keeling ssh to receive access to the keeling head node. All directories should open. 
+6. Open the terminal and it should show you bash in the keeling head node. Intialize a the compute node with qlogin (ex. "qlogin -p node -n 4 -mem 72G -time 24:00:00").
+7. Once the compute node is activated it will return the name of the compute node. For example, "keeling-g02". This does not mean the current window is connected to the compute node. 
+8. Open "Remote-SSH" and "Connect to Host..." and add "ssh keeling-g02". In the config file, it will automatically update the add the new host name. Save the config file. 
+9. Open "Remote-SSH" and connect to "keeling-g02".
+10. You will now be in the compute node. 
